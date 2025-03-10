@@ -12,12 +12,13 @@ const employee_controller_1 = require("./presentation/controllers/employee.contr
 const employee_service_1 = require("./application/services/employee.service");
 const employee_repository_1 = require("./infrastructure/repositories/employee.repository");
 const prisma_module_1 = require("../shared/infrastructure/prisma/prisma.module");
+const pdf_module_1 = require("../shared/infrastructure/pdf/pdf.module");
 let EmployeesModule = class EmployeesModule {
 };
 exports.EmployeesModule = EmployeesModule;
 exports.EmployeesModule = EmployeesModule = __decorate([
     (0, common_1.Module)({
-        imports: [prisma_module_1.PrismaModule],
+        imports: [prisma_module_1.PrismaModule, pdf_module_1.PDFModule],
         controllers: [employee_controller_1.EmployeeController],
         providers: [
             employee_service_1.EmployeeService,

@@ -15,12 +15,13 @@ const location_service_1 = require("./application/services/location.service");
 const event_repository_1 = require("./infrastructure/repositories/event.repository");
 const location_repository_1 = require("./infrastructure/repositories/location.repository");
 const prisma_module_1 = require("../shared/infrastructure/prisma/prisma.module");
+const pdf_module_1 = require("../shared/infrastructure/pdf/pdf.module");
 let EventsModule = class EventsModule {
 };
 exports.EventsModule = EventsModule;
 exports.EventsModule = EventsModule = __decorate([
     (0, common_1.Module)({
-        imports: [prisma_module_1.PrismaModule],
+        imports: [prisma_module_1.PrismaModule, pdf_module_1.PDFModule],
         controllers: [event_controller_1.EventController, location_controller_1.LocationController],
         providers: [
             event_service_1.EventService,

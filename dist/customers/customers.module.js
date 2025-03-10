@@ -9,18 +9,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomersModule = void 0;
 const common_1 = require("@nestjs/common");
 const customer_controller_1 = require("./presentation/controllers/customer.controller");
+const customer_pdf_controller_1 = require("./presentation/controllers/customer-pdf.controller");
 const customer_service_1 = require("./application/services/customer.service");
 const customer_repository_1 = require("./infrastructure/repositories/customer.repository");
+const customer_pdf_factory_1 = require("./infrastructure/factories/customer-pdf.factory");
 const prisma_module_1 = require("../shared/infrastructure/prisma/prisma.module");
+const pdf_module_1 = require("../shared/infrastructure/pdf/pdf.module");
 let CustomersModule = class CustomersModule {
 };
 exports.CustomersModule = CustomersModule;
 exports.CustomersModule = CustomersModule = __decorate([
     (0, common_1.Module)({
-        imports: [prisma_module_1.PrismaModule],
-        controllers: [customer_controller_1.CustomerController],
+        imports: [prisma_module_1.PrismaModule, pdf_module_1.PDFModule],
+        controllers: [customer_controller_1.CustomerController, customer_pdf_controller_1.CustomerPDFController],
         providers: [
             customer_service_1.CustomerService,
+            customer_pdf_factory_1.CustomerPDFFactory,
             {
                 provide: 'ICustomerRepository',
                 useClass: customer_repository_1.CustomerRepository,

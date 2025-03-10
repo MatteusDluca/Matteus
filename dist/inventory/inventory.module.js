@@ -12,6 +12,7 @@ const product_controller_1 = require("./presentation/controllers/product.control
 const category_controller_1 = require("./presentation/controllers/category.controller");
 const product_image_controller_1 = require("./presentation/controllers/product-image.controller");
 const maintenance_log_controller_1 = require("./presentation/controllers/maintenance-log.controller");
+const product_pdf_controller_1 = require("./presentation/controllers/product-pdf.controller");
 const product_service_1 = require("./application/services/product.service");
 const category_service_1 = require("./application/services/category.service");
 const product_image_service_1 = require("./application/services/product-image.service");
@@ -20,24 +21,28 @@ const product_repository_1 = require("./infrastructure/repositories/product.repo
 const category_repository_1 = require("./infrastructure/repositories/category.repository");
 const product_image_repository_1 = require("./infrastructure/repositories/product-image.repository");
 const maintenance_log_repository_1 = require("./infrastructure/repositories/maintenance-log.repository");
+const product_pdf_factory_1 = require("./infrastructure/factories/product-pdf.factory");
 const prisma_module_1 = require("../shared/infrastructure/prisma/prisma.module");
+const pdf_module_1 = require("../shared/infrastructure/pdf/pdf.module");
 let InventoryModule = class InventoryModule {
 };
 exports.InventoryModule = InventoryModule;
 exports.InventoryModule = InventoryModule = __decorate([
     (0, common_1.Module)({
-        imports: [prisma_module_1.PrismaModule],
+        imports: [prisma_module_1.PrismaModule, pdf_module_1.PDFModule],
         controllers: [
             product_controller_1.ProductController,
             category_controller_1.CategoryController,
             product_image_controller_1.ProductImageController,
             maintenance_log_controller_1.MaintenanceLogController,
+            product_pdf_controller_1.ProductPDFController,
         ],
         providers: [
             product_service_1.ProductService,
             category_service_1.CategoryService,
             product_image_service_1.ProductImageService,
             maintenance_log_service_1.MaintenanceLogService,
+            product_pdf_factory_1.ProductPDFFactory,
             {
                 provide: 'IProductRepository',
                 useClass: product_repository_1.ProductRepository,

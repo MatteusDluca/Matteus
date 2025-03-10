@@ -7,9 +7,10 @@ import { LocationService } from './application/services/location.service';
 import { EventRepository } from './infrastructure/repositories/event.repository';
 import { LocationRepository } from './infrastructure/repositories/location.repository';
 import { PrismaModule } from '../shared/infrastructure/prisma/prisma.module';
+import { PDFModule } from '../shared/infrastructure/pdf/pdf.module';
 
 @Module({
-  imports: [PrismaModule],
+  imports: [PrismaModule, PDFModule],
   controllers: [EventController, LocationController],
   providers: [
     EventService,

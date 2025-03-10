@@ -4,9 +4,10 @@ import { EmployeeController } from './presentation/controllers/employee.controll
 import { EmployeeService } from './application/services/employee.service';
 import { EmployeeRepository } from './infrastructure/repositories/employee.repository';
 import { PrismaModule } from '../shared/infrastructure/prisma/prisma.module';
+import { PDFModule } from '../shared/infrastructure/pdf/pdf.module';
 
 @Module({
-  imports: [PrismaModule],
+  imports: [PrismaModule, PDFModule],
   controllers: [EmployeeController],
   providers: [
     EmployeeService,
